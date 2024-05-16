@@ -1,20 +1,14 @@
 <?php
 
-$serviodr = "localhost";
-$usuario = "root";
-$clave = "";
-$basededatos = "cp";
-$enlace = mysqli_connect ($serviodr, $usuario, $clave, $basededatos);
+$mysqli=new mysqli("localhost","root","","cp");
 
+$nombre=$_POST['nombre'];
+$apellido=$_POST['apellido'];
+$telefono=$_POST['telefono'];
+$correo=$_POST['correo'];
+$contra=$_POST['contrsaeña'];
+$query="INSERT INTO usuarios (nombre, apellido, contraseña, correo, telefono)
+        VALUES ('$nombre', '$apellido', '$telefono', '$correo', '$contra')";
+$resultado=$mysqli->query($query);
 
-if(isset($_POST['registro'])){
-    $nombre =  $_POST ['nombre'];
-    $ap =  $_POST ['apellido'];
-    $contra =  $_POST ['contraseña'];
-    $correo =  $_POST ['correo'];
-    $telefono =  $_POST ['telefono'];
-    $insertarDtos = "INSERT INTO usuarios VALUES('$nombre', '$ap', '$contra', '$correo', '$telefono', '')";
-    $ejecutarInsertar = mysqli_query ($enlace, $insertarDtos);
-}
-  
 ?>

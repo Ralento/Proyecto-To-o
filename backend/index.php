@@ -20,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registro'])) {
         echo "Error en el registro: " . $mysqli->error;
     }
 }
-
 $mysqli->close();
 ?>
 <!DOCTYPE html>

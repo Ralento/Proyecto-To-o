@@ -81,7 +81,7 @@ $mysqli->close();
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="/frontend/login/login.css">
-  <link rel="shortcut icon" href="/frontend/img/icono.jpg" type="image/x-icon">
+  <link rel="shortcut icon" href="/img/icono.jpg" type="image/x-icon">
 </head>
 <body>
   <form action="/backend/index.php" name="a" method="post">

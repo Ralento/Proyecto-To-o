@@ -31,7 +31,22 @@ nav ul{
 }
 
 nav ul li a{
-    color: white;
+    color: rgb(255, 255, 255);
+    position: relative;
+    display: inline-block;
+    padding: 5px 15px;
+    letter-spacing: 4px;
+    text-decoration: none;
+    overflow: hidden;
+    transform: 0.2s;
+
 }
 
-a:hover{color:  #ffeba7;}
+nav ul li a:hover{
+    color: black;
+    background: #ffeba7;
+    box-shadow: 0 0 10px #ffeba7, 0 0 20px
+    #ffeba7, 0 0 40px #ffeba7;
+    transition-delay: 1ms;
+}
+

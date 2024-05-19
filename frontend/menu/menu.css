@@ -1,6 +1,6 @@
 body{
     min-height: 100vh;
-    background: url(/frontend/img/background.jpeg) no-repeat;
+    background: url(/img/background.jpeg) no-repeat;
     background-size: cover;
     background-position: center;
 }

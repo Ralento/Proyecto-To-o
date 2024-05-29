@@ -1,35 +1,25 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #4a00e0, #8e2de2);
+    background: linear-gradient(to right, #001b75, #12186b);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    color: #fff;
 }
 
 .container {
-    background: #0d0d52;
-    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    width: 70%;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 100%;
-    max-width: 400px;
-}
-
-header {
-    margin-bottom: 20px;
+    color: white;
 }
 
 h1 {
-    color: #ffffff;
-}
-
-h2 {
-    margin-bottom: 10px;
-    color: #ffffff;
+    margin-bottom: 20px;
+    margin-right: 5px;
 }
 
 form {
@@ -39,16 +29,13 @@ form {
 
 label {
     margin-bottom: 5px;
-    color: #ffffff;
 }
 
-input, select {
+input {
     margin-bottom: 15px;
     padding: 10px;
-    border: none;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    width: calc(100% - 20px);
-    box-sizing: border-box;
 }
 
 button {
@@ -58,15 +45,13 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
 }
 
 button:hover {
     background: #3700b3;
 }
 
-#calorias {
+#result {
     margin-top: 20px;
     font-weight: bold;
-    color: #ffffff;
 }

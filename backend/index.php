@@ -16,7 +16,7 @@ $registro_usuario = '';
 $registro_telefono = '';
 $registro_correo = '';
 $registro_contraseña = '';
-olaperras
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['registro'])) {

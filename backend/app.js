@@ -1,9 +1,13 @@
-var express = require('express');
-var mysql = require('mysql');
+const express = require('express');
+const mysql = require('mysql');
 
-var app = express();
+const app = express();
 app.use(express.json());
 
+
+//ROUTER
+const routes = require('./routes/perfil.routes')
+app.use(routes)
 
 //conexión
 var conexion = mysql.createConnection({
@@ -21,10 +25,7 @@ conexion.connect(function(error){
     }
 });
 
-app.get('/', function(req,res){
-    res.send('Ruta INICIO');
-});
-//ver todos los articulos
+//ver todos los artículos
 app.get('/api/alumnos', (req,res)=>{
     conexion.query('SELECT * FROM usuarios', (error, filas)=>{
         if(error){
@@ -59,7 +60,7 @@ app.post('/api/alumnos', (req,res)=>{
     });
 });
 
-//editar artiuclos
+//editar artículos
 app.put('/api/alumnos/:id', (req, res)=>{
     let id = req.params.id;
     let nombre = req.body.nombre;

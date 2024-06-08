@@ -121,7 +121,6 @@ html {
 .menu {
 	display: flex;
 	gap: 2rem;
-    float: right;
 }
 
 .menu li {
@@ -204,7 +203,7 @@ html {
 /* ********************************** */
 .banner {
 	background-image: linear-gradient(100deg, #000000, #00000020),
-		url('img/banneruni.jpg');
+		url('/img/fondo.webp');
 	height: 60rem;
 	background-size: cover;
 	background-position: center;

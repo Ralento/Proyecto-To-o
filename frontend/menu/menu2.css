@@ -109,98 +109,87 @@ html {
 
 /* ************* NAVBAR ************* */
 .container-navbar {
-	background-color: var(--primary-color);
+    background-color: var(--primary-color);
 }
 
 .navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
 }
 
 .navbar .fa-bars {
-	display: none;
+    display: none;
 }
 
 .menu {
-	display: flex;
-	gap: 2rem;
+    display: flex;
+    gap: 2rem;
 }
 
 .menu li {
-	list-style: none;
+    list-style: none;
+    position: relative; /* Necesario para el submenu */
 }
 
 .menu a {
-	text-decoration: none;
-	font-size: 1.3rem;
-	color: var(--dark-color);
-	font-weight: 600;
-	text-transform: uppercase;
-	position: relative;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: var(--dark-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
 }
 
 .menu a::after {
-	content: '';
-	width: 1.5rem;
-	height: 1px;
-	background-color: #fff;
-	position: absolute;
-	bottom: -3px;
-	left: 50%;
-	transform: translate(-50%, 50%);
-	opacity: 0;
-	transition: all 0.3s ease;
+    content: '';
+    width: 1.5rem;
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    opacity: 0;
+    transition: all 0.3s ease;
 }
 
 .menu a:hover::after {
-	opacity: 1;
+    opacity: 1;
 }
 
 .menu a:hover {
-	color: #fff;
+    color: #fff;
 }
 
-.search-form {
-	position: relative;
-	display: flex;
-	align-items: center;
-	border: 2px solid #fff;
-	border-radius: 2rem;
-	background-color: #fff;
-	height: 4.4rem;
-	overflow: hidden;
+/* Estilos para el submenu */
+.submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: var(--primary-color);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.search-form input {
-	outline: none;
-	font-family: inherit;
-	border: none;
-	width: 25rem;
-	font-size: 1.4rem;
-	padding: 0 2rem;
-	color: #777;
-	cursor: pointer;
+.submenu li {
+    position: relative;
 }
 
-.search-form input::-webkit-search-cancel-button {
-	appearance: none;
+.submenu a {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    color: var(--dark-color);
+    text-transform: none;
+    font-weight: normal;
 }
 
-.search-form .btn-search {
-	border: none;
-	background-color: var(--primary-color);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	padding: 1rem;
-}
-
-.btn-search i {
-	font-size: 2rem;
-	color: #fff;
+.menu li:hover .submenu {
+    display: block;
 }
 
 /* ********************************** */

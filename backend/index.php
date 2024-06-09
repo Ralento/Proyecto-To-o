@@ -1,5 +1,5 @@
 <?php
-require "conexion.php";
+require "./conexion.php";
 $error_message = '';
 $login_error = '';
 $login_usuario = '';

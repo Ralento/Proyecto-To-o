@@ -8,21 +8,23 @@
     <script defer src="imc.js"></script>
 </head>
 <body>
-    <div class="calculator">
-        <div class="screen">
-            <p id="imc">Tu IMC aparecerá aquí</p>
-        </div>
-        <div class="inputs">
-            <div class="input-group">
-                <label for="peso">Peso (kg):</label>
-                <input type="number" id="peso" name="peso" required>
+    <form action="" method="post">
+        <div class="calculator">
+            <div class="screen">
+                <p id="imc">Tu IMC aparecerá aquí</p>
             </div>
-            <div class="input-group">
-                <label for="altura">Altura (cm):</label>
-                <input type="number" id="altura" name="altura" required>
+            <div class="inputs">
+                <div class="input-group">
+                    <label for="peso">Peso (kg):</label>
+                    <input type="number" id="peso" name="peso" required>
+                </div>
+                <div class="input-group">
+                    <label for="altura">Altura (cm):</label>
+                    <input type="number" id="altura" name="altura" required>
+                </div>
+                <button type="button" onclick="calcularIMC()">Calcular IMC</button>
             </div>
-            <button type="button" onclick="calcularIMC()">Calcular IMC</button>
         </div>
-    </div>
+    </form>
 </body>
 </html>

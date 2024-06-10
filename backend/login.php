@@ -1,5 +1,7 @@
 <?php
-require "./conexion.php";
+session_start();
+
+require ("conexion.php");
 $error_message = '';
 $login_error = '';
 $login_usuario = '';
@@ -42,13 +44,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $login_usuario = $mysqli->real_escape_string($_POST['login_usuario']);
         $login_password = $mysqli->real_escape_string($_POST['login_password']);
 
-        $userQuery = "SELECT * FROM usuarios WHERE usuario = '$login_usuario'";
+        $userQuery = "SELECT id, contraseña FROM usuarios WHERE usuario = '$login_usuario'";
         $userResult = $mysqli->query($userQuery);
 
         if ($userResult->num_rows > 0) {
             $user = $userResult->fetch_assoc();
             if ($user['contraseña'] === $login_password) {
-                echo "<script>alert('Inicio de sesión exitoso.'); window.location.href='/frontend/menu/menu.html';</script>";
+                $_SESSION['user_id'] = $user['id']; // Guardar el ID del usuario en la sesión
+                echo "<script>alert('Inicio de sesión exitoso.'); window.location.href='/frontend/menu/menu2.html';</script>";
+                exit();
             } else {
                 $login_error = 'Contraseña incorrecta.';
             }
@@ -65,9 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $mysqli->close();
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,7 +81,7 @@ $mysqli->close();
   <link rel="shortcut icon" href="/img/icono.jpg" type="image/x-icon">
 </head>
 <body>
-  <form action="/backend/index.php" name="a" method="post">
+  <form action="" name="a" method="post">
     <div class="section">
       <div class="container">
         <div class="row full-height justify-content-center">
@@ -109,7 +110,6 @@ $mysqli->close();
                         </div>
                         <?php endif; ?>
                         <input type="submit" class="btn mt-4" value="Login" name="login">
-                        <!--<p class="mb-0 mt-4 text-center"><a href="https://www.youtube.com/watch?v=4Lsbg4tq9-Q" class="link">Forgot your password?</a></p>-->
                       </div>
                     </div>
                   </div>

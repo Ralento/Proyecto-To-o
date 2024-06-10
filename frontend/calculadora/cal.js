@@ -34,5 +34,18 @@ function calcularCalorias() {
     }
 
     const caloriasDiarias = bmr * factorActividad;
-    document.getElementById('calorias').textContent = `Calorías diarias necesarias: ${Math.round(caloriasDiarias)} kcal`;
+
+    // Añadir un campo oculto para las calorías diarias
+    let caloriasInput = document.getElementById('calorias_value');
+    if (!caloriasInput) {
+        caloriasInput = document.createElement('input');
+        caloriasInput.type = 'hidden';
+        caloriasInput.name = 'calorias';
+        caloriasInput.id = 'calorias_value';
+        document.getElementById('calccc').appendChild(caloriasInput);
+    }
+    caloriasInput.value = Math.round(caloriasDiarias);
+
+    // Enviar el formulario
+    document.getElementById('calccc').submit();
 }

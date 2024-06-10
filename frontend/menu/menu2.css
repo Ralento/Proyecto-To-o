@@ -2,7 +2,7 @@
 
 :root {
 	--primary-color: #c7a17a;
-	--background-color: #f9f5f0;
+	--background-color: #1f2029;
 	--dark-color: #151515;
 }
 
@@ -860,6 +860,8 @@ html {
 	font-weight: 400;
 	font-size: 1.6rem;
 }
+
+
 
 /* ********************************** */
 /*       MEDIA QUERIES -- 768px       */

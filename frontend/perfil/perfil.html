@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="perfil.css">
+    <title>Perfil de Usuario</title>
+    <script src="perfil.js"></script>
+</head>
+<body>
+    <h1>Perfil de Usuario</h1>
+    <form action="perfil.php" method="post" id="perfil">
+        <table id="profile-table">
+            <tr>
+                <th>Usuario</th>
+                <td><input type="text" id="usuario" name="usuario" required></td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td><input type="text" id="nombre" name="nombre" required></td>
+            </tr>
+            <tr>
+                <th>Contraseña</th>
+                <td><input type="password" id="contraseña" name="contraseña" required></td>
+            </tr>
+            <tr>
+                <th>Correo</th>
+                <td><input type="email" id="correo" name="correo" required></td>
+            </tr>
+            <tr>
+                <th>Teléfono</th>
+                <td><input type="tel" id="telefono" name="telefono" required></td>
+            </tr>
+            <tr>
+                <th>IMC</th>
+                <td id="imc"></td>
+            </tr>
+            <tr>
+                <th>Calorías</th>
+                <td id="calorias"></td>
+            </tr>
+        </table>
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</body>
+</html>

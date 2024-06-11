@@ -64,39 +64,43 @@ if ($stmt = $mysqli->prepare($query)) {
     <script src="/frontend/perfil/perfil.js"></script>
 </head>
 <body>
-    <h1>Perfil de Usuario</h1>
-    <form action="perfil.php" method="post" id="perfil">
-        <table id="profile-table">
-            <tr>
-                <th>Usuario</th>
-                <td><input type="text" id="usuario" name="usuario" required value="<?php echo htmlspecialchars($data['usuario']); ?>"></td>
-            </tr>
-            <tr>
-                <th>Nombre</th>
-                <td><input type="text" id="nombre" name="nombre" required value="<?php echo htmlspecialchars($data['nombre']); ?>"></td>
-            </tr>
-            <tr>
-                <th>Contraseña</th>
-                <td><input type="password" id="contraseña" name="contraseña" required value="<?php echo htmlspecialchars($data['contraseña']); ?>"></td>
-            </tr>
-            <tr>
-                <th>Correo</th>
-                <td><input type="email" id="correo" name="correo" required value="<?php echo htmlspecialchars($data['correo']); ?>"></td>
-            </tr>
-            <tr>
-                <th>Teléfono</th>
-                <td><input type="tel" id="telefono" name="telefono" required value="<?php echo htmlspecialchars($data['telefono']); ?>"></td>
-            </tr>
-            <tr>
-                <th>IMC</th>
-                <td><?php echo htmlspecialchars($data['IMC']); ?></td>
-            </tr>
-            <tr>
-                <th>Calorías</th>
-                <td><?php echo htmlspecialchars($data['calorias']); ?></td>
-            </tr>
-        </table>
-        <button type="submit">Guardar Cambios</button>
-    </form>
+    <div class="container">
+        <h2>Perfil de Usuario</h2>
+        <form action="perfil.php" method="post" id="perfil">
+            <table id="profile-table">
+                <tr>
+                    <th>Usuario</th>
+                    <td><input type="text" id="usuario" name="usuario" required value="<?php echo htmlspecialchars($data['usuario']); ?>"></td>
+                </tr>
+                <tr>
+                    <th>Nombre</th>
+                    <td><input type="text" id="nombre" name="nombre" required value="<?php echo htmlspecialchars($data['nombre']); ?>"></td>
+                </tr>
+                <tr>
+                    <th>Contraseña</th>
+                    <td><input type="password" id="contraseña" name="contraseña" required value="<?php echo htmlspecialchars($data['contraseña']); ?>"></td>
+                </tr>
+                <tr>
+                    <th>Correo</th>
+                    <td><input type="email" id="correo" name="correo" required value="<?php echo htmlspecialchars($data['correo']); ?>"></td>
+                </tr>
+                <tr>
+                    <th>Teléfono</th>
+                    <td><input type="tel" id="telefono" name="telefono" required value="<?php echo htmlspecialchars($data['telefono']); ?>"></td>
+                </tr>
+                <tr>
+                    <th>IMC</th>
+                    <td><?php echo htmlspecialchars($data['IMC']); ?></td>
+                </tr>
+                <tr>
+                    <th>Calorías</th>
+                    <td><?php echo htmlspecialchars($data['calorias']); ?></td>
+                </tr>
+            </table>
+            <button type="submit">Guardar Cambios</button>
+        </form>
+        <br>
+        <button class="back-button" onclick="window.location.href='/frontend/menu/menu2.html';">Regresar</button>
+    </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Realizar una solicitud AJAX para obtener los datos del usuario
-    fetch('perfil.php')
+    fetch('/backend/perfil.php')
         .then(response => response.json())
         .then(data => {
             if (data.error) {

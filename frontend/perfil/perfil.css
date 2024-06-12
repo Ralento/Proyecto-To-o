@@ -49,18 +49,18 @@ button[type="submit"] {
     color: #1f2029;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-bottom: 10px;
 }
 
 button[type="submit"]:hover {
     background-color: #d7bb9c;
 }
 
-button.back-button {
+button.back-button,
+button.delete-button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #ff6f61;
-    color: #1f2029;
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 20px;
@@ -69,6 +69,20 @@ button.back-button {
     text-align: center;
 }
 
+button.back-button {
+    background-color: #ff6f61;
+    color: #1f2029;
+}
+
 button.back-button:hover {
     background-color: #ff867a;
+}
+
+button.delete-button {
+    background-color: #ff4c4c;
+    color: #1f2029;
+}
+
+button.delete-button:hover {
+    background-color: #ff6f6f;
 }

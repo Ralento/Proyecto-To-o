@@ -10,36 +10,52 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Actualizar los datos del usuario
-    $nombre = $_POST['nombre'];
-    $usuario = $_POST['usuario'];
-    $contraseña = $_POST['contraseña'];
-    $correo = $_POST['correo'];
-    $telefono = $_POST['telefono'];
-
-    // Verificar si el nuevo nombre de usuario ya existe
-    $query_check = "SELECT id FROM usuarios WHERE usuario = ? AND id != ?";
-    if ($stmt = $mysqli->prepare($query_check)) {
-        $stmt->bind_param("si", $usuario, $user_id);
-        $stmt->execute();
-        $stmt->store_result();
-        if ($stmt->num_rows > 0) {
-            echo "<script>alert('El nombre de usuario ya existe.'); window.location.href = 'perfil.php';</script>";
-            exit();
-        }
-    }
-
-    // Actualizar los datos del usuario
-    $query_update = "UPDATE usuarios SET nombre = ?, usuario = ?, contraseña = ?, correo = ?, telefono = ? WHERE id = ?";
-    if ($stmt = $mysqli->prepare($query_update)) {
-        $stmt->bind_param("sssssi", $nombre, $usuario, $contraseña, $correo, $telefono, $user_id);
-        if ($stmt->execute()) {
-            echo "<script>alert('Cambios guardados exitosamente.'); window.location.href = 'perfil.php';</script>";
-        } else {
-            echo "<script>alert('Error al guardar los cambios.'); window.location.href = 'perfil.php';</script>";
+    if (isset($_POST['delete']) && $_POST['delete'] == '1') {
+        // Eliminar el usuario
+        $query_delete = "DELETE FROM usuarios WHERE id = ?";
+        if ($stmt = $mysqli->prepare($query_delete)) {
+            $stmt->bind_param("i", $user_id);
+            if ($stmt->execute()) {
+                session_destroy();
+                echo "<script>alert('Cuenta eliminada exitosamente.'); window.location.href = 'index.php';</script>";
+                exit();
+            } else {
+                echo "<script>alert('Error al eliminar la cuenta.'); window.location.href = 'perfil.php';</script>";
+                exit();
+            }
         }
     } else {
-        echo "<script>alert('Error en la consulta de actualización.'); window.location.href = 'perfil.php';</script>";
+        // Actualizar los datos del usuario
+        $nombre = $_POST['nombre'];
+        $usuario = $_POST['usuario'];
+        $contraseña = $_POST['contraseña'];
+        $correo = $_POST['correo'];
+        $telefono = $_POST['telefono'];
+
+        // Verificar si el nuevo nombre de usuario ya existe
+        $query_check = "SELECT id FROM usuarios WHERE usuario = ? AND id != ?";
+        if ($stmt = $mysqli->prepare($query_check)) {
+            $stmt->bind_param("si", $usuario, $user_id);
+            $stmt->execute();
+            $stmt->store_result();
+            if ($stmt->num_rows > 0) {
+                echo "<script>alert('El nombre de usuario ya existe.'); window.location.href = 'perfil.php';</script>";
+                exit();
+            }
+        }
+
+        // Actualizar los datos del usuario
+        $query_update = "UPDATE usuarios SET nombre = ?, usuario = ?, contraseña = ?, correo = ?, telefono = ? WHERE id = ?";
+        if ($stmt = $mysqli->prepare($query_update)) {
+            $stmt->bind_param("sssssi", $nombre, $usuario, $contraseña, $correo, $telefono, $user_id);
+            if ($stmt->execute()) {
+                echo "<script>alert('Cambios guardados exitosamente.'); window.location.href = 'perfil.php';</script>";
+            } else {
+                echo "<script>alert('Error al guardar los cambios.'); window.location.href = 'perfil.php';</script>";
+            }
+        } else {
+            echo "<script>alert('Error en la consulta de actualización.'); window.location.href = 'perfil.php';</script>";
+        }
     }
 }
 
@@ -98,6 +114,7 @@ if ($stmt = $mysqli->prepare($query)) {
                 </tr>
             </table>
             <button type="submit">Guardar Cambios</button>
+            <button type="submit" name="delete" value="1" onclick="return confirm('¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.');">Borrar Usuario</button>
         </form>
         <br>
         <button class="back-button" onclick="window.location.href='/frontend/menu/menu2.html';">Regresar</button>

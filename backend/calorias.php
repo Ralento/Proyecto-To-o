@@ -6,18 +6,6 @@ if (!isset($_SESSION['user_id'])) {
     echo "Error: Usuario no autenticado.";
     exit();
 }
-
-session_start(); // Iniciar la sesión
-
-// Verificar si el usuario ha iniciado sesión
-if (!isset($_SESSION['user_id'])) {
-    echo "Error: Usuario no autenticado.";
-    exit();
-}
-
-// Incluir el archivo de conexión a la base de datos
-require_once "/Users/Roy/OneDrive/Documentos/GitHub/Proyecto_To-ito/backend/conexion.php";
-
 // Verificar si se recibieron los datos mediante POST
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['calorias'])) {
     // Obtener y escapar los datos

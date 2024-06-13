@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $query = "INSERT INTO usuarios (nombre, usuario, contraseña, correo, telefono)
                       VALUES ('$registro_nombre', '$registro_usuario', '$registro_contraseña', '$registro_correo', '$registro_telefono')";
             if ($mysqli->query($query)) {
-                echo "<script>alert('Registro exitoso.'); window.location.href='/frontend/login/login.html';</script>";
+                echo "<script>alert('Registro exitoso.'); window.location.href='/backend/login.php';</script>";
             } else {
                 $error_message = "Error en el registro: " . $mysqli->error;
             }

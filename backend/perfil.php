@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bind_param("i", $user_id);
             if ($stmt->execute()) {
                 session_destroy();
-                echo "<script>alert('Cuenta eliminada exitosamente.'); window.location.href = 'index.php';</script>";
+                echo "<script>alert('Cuenta eliminada exitosamente.'); window.location.href = 'login.php';</script>";
                 exit();
             } else {
                 echo "<script>alert('Error al eliminar la cuenta.'); window.location.href = 'perfil.php';</script>";
